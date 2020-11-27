@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+    
+        <div class="">
+            <h3 class="title" >Cars</h3>
+            <button (click)="onAdd()" class="btn btn-primary" style="margin: 30px;">Add Car</button>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Thumbnail</th>
+                        <th>car Name</th>
+                        <th>No Of Seats</th>
+                        <th>Plate No.</th>
+                        <th>Price/hour</th>
+                        <th>description</th>
+                        <th>Model</th>
+                        <th>transmission</th>
+                        <th>fuel</th>
+                        <th>status</th>
+                        <th>Actions</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let car of cars;let i=index">
+                        <td>{{i+1}}</td>
+                        <td> <img src="http://localhost:4000/car/image/{{car.image}}" alt="" width="150px" height="150px"> </td>
+                        <td>{{car.carName}}</td>
+                        <td>{{car.noOfSeats}}</td>
+                        <td>{{car.plateNo}}</td>
+                        <td>{{car.pricePerHour}}</td>
+                        <td>{{car.description}}</td>
+
+                        <td>{{car.model}}</td>
+                        <td>{{car.transmission}}</td>
+                        <td>{{car.fuel}}</td>
+                        <td *ngIf="car.isAvailable==1">Available</td>
+                        <td *ngIf="car.isAvailable==0">Not Available</td>
+                        <td *ngIf="car.isAvailable==2">In waiting List</td>
+                        <td>
+                            <button (click)="onEdit(car)" class="btn btn-warning">Edit</button> <br>
+                            <button (click)="onDelete(car)" class="btn btn-danger" style="margin-left: 20px;">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+</body>
+</html>

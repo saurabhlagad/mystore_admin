@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="">status</label>
+            <select (change)="loadCars(1)" [(ngModel)]="status" class="form-control">
+                <option value="-1">All</option>
+                <option value="0">on the way</option>
+                <option value="1">Returned</option>
+                <option value="2">waiting list</option>
+                <option value="3">denied requests</option>
+            </select>
+        </div>          
+    </div>
+
+    <div class="col-md-4">
+        <div class="form-group">
+          <label for="">Search</label>
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+    
+          <input class="form-control " (change)="loadCars(0)" [(ngModel)]="text" type="search" placeholder="Search Car name/username Press Enter after search text" aria-label="Search">
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        </div>
+      </div>
+    </div>
+        <div *ngIf="cars.length==0"><h3 class="title">There are no booked car for now</h3></div>
+        <div *ngIf="cars.length!=0">
+            <h3 class="title" >Booked Cars</h3>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Thumbnail</th>
+                        <th>car Details</th>
+                        <th>User Details</th>
+                        <th>From Date</th>
+                        <th>From Time</th>
+                        <th>To Date</th>
+                        <th>To Time</th>
+                        <th>User Driving Licence</th>
+                        <!-- <th>status</th> -->
+                        <th>Actions</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let car of cars;let i=index">
+                        <td>{{i+1}}</td>
+                        <td> <img src="http://localhost:4000/bookedcars/image/{{car.carImage}}" alt="" width="150px" height="150px"> </td>
+                        <td>
+                            <strong>Car Name:</strong>{{car.carName}} <br>
+                            <strong>Plate No:</strong>{{car.plateNo}} <br>
+                            <strong>price/hour:</strong>₹{{car.pricePerHour}}
+                        </td>
+                        <td>
+                            <strong>User Firstname:</strong> {{car.userFirstName}} <br>
+                            <strong>User Lastname:</strong> {{car.userLastName}} <br>
+                            <strong>Mobile No:</strong> {{car.userPhone}} <br>
+                        </td>
+                        <td>{{car.fromDate}}</td>
+                        <td>{{car.fromTime}}</td>
+                        <td>{{car.toDate}}</td>
+                        <td>{{car.toTime}}</td>
+                        <td> 
+                            <button (click)="showLicence(car)" class="btn btn-outline-primary">Driving Licence</button>
+                        </td>
+                        <td>
+                            <button *ngIf="car.isReturned==2"  class="btn btn-primary">In waiting List</button>
+                            <button *ngIf="car.isReturned==3" class="btn btn-danger" style="margin-left: 20px;">Request Denied</button>
+                            <button *ngIf="car.isReturned==0"  class="btn btn-success">On the way</button>
+                            <button *ngIf="car.isReturned==1" class="btn btn-success">Returned</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+</body>
+</html>

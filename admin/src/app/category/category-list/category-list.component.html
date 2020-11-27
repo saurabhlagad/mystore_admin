@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+        <div class="container">
+            <h3 class="title">categories</h3>
+            <button (click)="onAdd()" class="btn btn-primary" style="margin:20px;">Add category</button>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>title</th>
+                        <th>description</th>
+                        <th>Actions</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let category of categories;let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{category.title}}</td>
+                        <td>{{category.description}}</td>
+                        <td>
+                            <button (click)="onEdit(category)" class="btn btn-warning">Edit</button>
+                            <button (click)="onDelete(category)" class="btn btn-danger" style="margin-left: 20px;">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+</body>
+</html>

@@ -1,0 +1,91 @@
+<div class="modal-header">
+    <h3 class="title">Add car</h3>
+</div>
+
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Car Name</label>
+                <input [(ngModel)]="carName" type="text" class="form-control">
+            </div>          
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">No of seats</label>
+                <input [(ngModel)]="noOfSeats" type="number" class="form-control">
+            </div>          
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Model</label>
+                <input [(ngModel)]="model" type="text" class="form-control">
+            </div>          
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Description</label><br>
+                <textarea [(ngModel)]="description" name="" id="" cols="30" rows="7"></textarea>
+                <!-- <select [(ngModel)]="brand" class="form-control">
+                    <option [value]="brand.id" *ngFor="let brand of brands">{{brand.title}}</option>
+                    <option value="">Other</option>
+                </select> -->
+            </div>          
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <label for="">Plate No.</label><br>
+        <input [(ngModel)]="plateNo" type="text" class="form-control">
+      </div>
+      <div class="col-md-6">
+        <label for="">Price/hour</label><br>
+        <input [(ngModel)]="pricePerHour" type="text" class="form-control">
+      </div>
+      <!-- <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Select product image</label>
+            <input (change)="onImageSelected($event)" accept="image/*" type="file" class="form-control">
+        </div>          
+    </div> -->
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="">Transmission</label>
+                <select [(ngModel)]="transmission" class="form-control">
+                    <option value="auto" >Auto</option>
+                    <option value="manuel">Manuel</option>
+                </select>
+            </div>          
+        </div>
+        
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="">Fuel</label>
+                <!-- <input [(ngModel)]="Fuel" type="number" class="form-control"> -->
+                <select [(ngModel)]="fuel" class="form-control">
+                    <option value="petrol" >Petrol</option>
+                    <option value="diesel">Diesel</option>
+                </select>
+            </div>          
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="">Select car image</label>
+                <input (change)="onImageSelected($event)" accept="image/*" type="file" class="form-control">
+            </div>          
+        </div>
+
+    </div>
+    
+</div>
+
+<div class="modal-footer">
+    <button (click)="onAdd()" class="btn btn-primary" style="margin-right:30px;">Add</button>
+    <button (click)="onCancel()" class="btn btn-danger" style="float: right;">Cancel</button>
+</div>
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        
+        <div class="container">
+            <h3 class="title">Brands</h3>
+            <button (click)="onAdd()" class="btn btn-primary" style="margin:20px;">Add Brand</button>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>title</th>
+                        <th>description</th>
+                        <th>Actions</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let brand of brands;let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{brand.title}}</td>
+                        <td>{{brand.description}}</td>
+                        <td>
+                            <button (click)="onEdit(brand)" class="btn btn-warning">Edit</button>
+                            <button (click)="onDelete(brand)" class="btn btn-danger" style="margin-left: 20px;">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+</body>
+</html>

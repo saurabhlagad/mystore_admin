@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+.nav-link{
+    margin-left: 50px;
+}
+
+.title{
+    color: rgb(44, 43, 43);
+    text-align: center;
+}

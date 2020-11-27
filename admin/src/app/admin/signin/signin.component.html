@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 class="title" style="padding-top: 20px;">Signin</h2>
+<div class="row" style="padding-top: 100px;">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        <div class="shadow p-3 mb-5 bg-white rounded">
+            <div class="form">
+                <div class="form-group">
+                    <label for="">email:</label>
+                    <input [(ngModel)]="email" type="text" class="form-control">
+                    <label for="">password:</label>
+                    <input [(ngModel)]="password" type="password" class="form-control">
+                </div>
+            </div>
+            <button class="btn btn-primary" (click)="onSignin()">Signin</button>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+
+    </div>
+    
+</div>
+</body>
+</html>

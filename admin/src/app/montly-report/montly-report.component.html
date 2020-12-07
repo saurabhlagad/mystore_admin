@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Year</label>
+                <select (change)="getBookedCars()" [(ngModel)]="year" class="form-control">
+                    <option value="0">All</option>
+                    <option *ngFor="let year of years" [value]="year.year">{{year.year}}</option>
+        
+                </select>
+            </div>          
+        </div>
+    
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="">Month</label>
+            
+                <select *ngIf="year==0" (change)="getBookedCars()" [(ngModel)]="month" class="form-control" disabled>
+                    <option value="0">All</option>
+                    <option *ngFor="let month of months" [value]="month.month">{{month.month}}</option>
+        
+                </select>
+                <select *ngIf="year!=0" (change)="getBookedCars1()" [(ngModel)]="month" class="form-control">
+                    <option value="0">All</option>
+                    <option *ngFor="let month of months" [value]="month.month">
+                        <h6 *ngIf="month.month==1">Jan</h6>
+                        <h6 *ngIf="month.month==2">Feb</h6>
+                        <h6 *ngIf="month.month==3">March</h6>
+                        <h6 *ngIf="month.month==4">April</h6>
+                        <h6 *ngIf="month.month==5">May</h6>
+                        <h6 *ngIf="month.month==6">June</h6>
+                        <h6 *ngIf="month.month==7">Jully</h6>
+                        <h6 *ngIf="month.month==8">August</h6>
+                        <h6 *ngIf="month.month==9">Sept</h6>
+                        <h6 *ngIf="month.month==10">Oct</h6>
+                        <h6 *ngIf="month.month==11">Nov</h6>
+                        <h6 *ngIf="month.month==12">Dec</h6>
+                    </option>
+        
+                </select>
+            </div>          
+        </div>
+        </div>
+    </div>
+
+        <div *ngIf="bookedcars.length==0"><h3 class="title">There are no cars in waiting list for now</h3></div>
+        <div *ngIf="bookedcars.length!=0">
+            <h3 class="title" >Booked Cars</h3>
+            <table class="table table-striped table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Thumbnail</th>
+                        <th>car Details</th>
+                        <th>User Details</th>
+                        <th>From Date</th>
+                        <th>From Time</th>
+                        <th>To Date</th>
+                        <th>To Time</th>
+                        <th>User Driving Licence</th>
+                        <!-- <th>status</th> -->
+                        <th>Actions</th>
+                    </tr>
+                    
+                </thead>
+                <tbody>
+                    <tr *ngFor="let bookedcar of bookedcars;let i=index">
+                        <td>{{i+1}}</td>
+                        <td> <img src="http://localhost:4000/bookedcars/image/{{bookedcar.carImage}}" alt="" width="150px" height="150px"> </td>
+                        <td>
+                            <strong>Car Name:</strong>{{bookedcar.carName}} <br>
+                            <strong>Plate No:</strong>{{bookedcar.plateNo}} <br>
+                            <strong>price/hour:</strong>₹{{bookedcar.pricePerHour}}
+                        </td>
+                        <td>
+                            <strong>User Firstname:</strong> {{bookedcar.userFirstName}} <br>
+                            <strong>User Lastname:</strong> {{bookedcar.userLastName}} <br>
+                            <strong>Mobile No:</strong> {{bookedcar.userPhone}} <br>
+                        </td>
+                        <td>{{bookedcar.fromDate}}</td>
+                        <td>{{bookedcar.fromTime}}</td>
+                        <td>{{bookedcar.toDate}}</td>
+                        <td>{{bookedcar.toTime}}</td>
+                        <td> 
+                            <button (click)="showLicence(bookedcar)" class="btn btn-outline-primary">Driving Licence</button>
+                        </td>
+                        <td>
+                            <button *ngIf="bookedcar.isReturned==2"  class="btn btn-primary">In waiting List</button>
+                            <button *ngIf="bookedcar.isReturned==3" class="btn btn-danger" style="margin-left: 20px;">Request Denied</button>
+                            <button *ngIf="bookedcar.isReturned==0"  class="btn btn-success">On the way</button>
+                            <button *ngIf="bookedcar.isReturned==1" class="btn btn-success">Returned</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+</body>
+</html>

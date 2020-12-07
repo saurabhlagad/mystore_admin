@@ -21,6 +21,7 @@ import { BrandEditComponent } from './brand/brand-edit/brand-edit.component';
 import { ProductEditComponent } from './product/product-edit/product-edit.component';
 import { BookedcarListComponent } from './bookedcar/bookedcar-list/bookedcar-list.component';
 import { BookingHistoryComponent } from './bookedcar/booking-history/booking-history.component';
+import { MontlyReportComponent } from './montly-report/montly-report.component';
 //import { DrivinglicenceComponent } from './drivinglicence/drivinglicence/drivinglicence.component';
 //import { BookedcarEditComponent } from './bookedcar/bookedcar-edit/bookedcar-edit.component';
 
@@ -40,6 +41,7 @@ import { BookingHistoryComponent } from './bookedcar/booking-history/booking-his
     ProductEditComponent,
     BookedcarListComponent,
     BookingHistoryComponent,
+    MontlyReportComponent
     //DrivinglicenceComponent,
     //BookedcarEditComponent
   ],

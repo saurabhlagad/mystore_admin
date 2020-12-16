@@ -27,7 +27,17 @@ export class MontlyReportService {
     return this.http.get(this.url+'/monthreport/'+year,httpOptions)
   }
 
-  postReport(month:number,year:number){
+  getCars(){
+    const httpOptions={
+      headers:new HttpHeaders({
+        token:sessionStorage['token']
+      })
+    }
+    console.log(`in get months function`)
+    return this.http.get(this.url+'/carreport',httpOptions)
+  }
+
+  postReport(month:number,year:number,carId:number){
     const httpOptions={
       headers:new HttpHeaders({
         token:sessionStorage['token']
@@ -35,7 +45,8 @@ export class MontlyReportService {
     }
     const body={
       month:month,
-      year:year
+      year:year,
+      carId:carId
     }
     return this.http.post(this.url+'/monthlyreport/',body,httpOptions)
   }

@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
+<body id="contentToConvert">
     <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="">Year</label>
                 <select (change)="getBookedCars()" [(ngModel)]="year" class="form-control">
@@ -19,7 +19,7 @@
             </div>          
         </div>
     
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="">Month</label>
             
@@ -48,12 +48,25 @@
                 </select>
             </div>          
         </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="">Car</label>
+                <select (change)="getBookedCars1()" [(ngModel)]="carId" class="form-control">
+                    <option value="0">All</option>
+                    <option *ngFor="let car of cars" [value]="car.id">{{car.carName}}( {{car.id}} )</option>
+        
+                </select>
+            </div>          
+        </div>
         </div>
     </div>
 
         <div *ngIf="bookedcars.length==0"><h3 class="title">There are no cars in waiting list for now</h3></div>
         <div *ngIf="bookedcars.length!=0">
+            <button style="margin-left: 300px;" class="btn btn-primary" (click)="generatePDF()">Download</button>
+
             <h3 class="title" >Booked Cars</h3>
+            <h4>Total Rent : ₹ {{monthlyRent}}</h4>
             <table class="table table-striped table-hover table-bordered">
                 <thead>
                     <tr>
@@ -65,7 +78,8 @@
                         <th>From Time</th>
                         <th>To Date</th>
                         <th>To Time</th>
-                        <th>User Driving Licence</th>
+                        <th>Total Rent</th>
+                        <th>Ride Duration</th>
                         <!-- <th>status</th> -->
                         <th>Actions</th>
                     </tr>
@@ -89,9 +103,11 @@
                         <td>{{bookedcar.fromTime}}</td>
                         <td>{{bookedcar.toDate}}</td>
                         <td>{{bookedcar.toTime}}</td>
-                        <td> 
+                        <!-- <td> 
                             <button (click)="showLicence(bookedcar)" class="btn btn-outline-primary">Driving Licence</button>
-                        </td>
+                        </td> -->
+                        <td>₹ {{bookedcar.totalRent}}</td>
+                        <td>{{bookedcar.rideDuration}} Min</td>
                         <td>
                             <button *ngIf="bookedcar.isReturned==2"  class="btn btn-primary">In waiting List</button>
                             <button *ngIf="bookedcar.isReturned==3" class="btn btn-danger" style="margin-left: 20px;">Request Denied</button>

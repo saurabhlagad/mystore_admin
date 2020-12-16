@@ -14,12 +14,13 @@
                     <tr>
                         <th>No</th>
                         <th>Thumbnail</th>
-                        <th>car Details</th>
+                        <th>Car Details</th>
                         <th>User Details</th>
                         <th>From Date</th>
                         <th>From Time</th>
                         <th>To Date</th>
                         <th>To Time</th>
+                        <th>Details</th>
                         <th>User Driving Licence</th>
                         <!-- <th>status</th> -->
                         <th>Actions</th>
@@ -33,7 +34,7 @@
                         <td>
                             <strong>Car Name:</strong>{{car.carName}} <br>
                             <strong>Plate No:</strong>{{car.plateNo}} <br>
-                            <strong>price/hour:</strong>₹{{car.pricePerHour}}
+                            <strong>Price/hour:</strong>₹{{car.pricePerHour}}
                         </td>
                         <td>
                             <strong>User Firstname:</strong> {{car.userFirstName}} <br>
@@ -44,6 +45,7 @@
                         <td>{{car.fromTime}}</td>
                         <td>{{car.toDate}}</td>
                         <td>{{car.toTime}}</td>
+                        <td> <strong> Destination:</strong> {{car.destination}} <br> <strong> Pick Point</strong> {{car.pickPoint}}  </td>
                         <td> 
                             <button (click)="showLicence(car)" class="btn btn-outline-primary">Driving Licence</button>
                         </td>

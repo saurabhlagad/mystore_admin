@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+//import { totalmem } from 'os';
 
 @Injectable({
   providedIn: 'root'
@@ -40,14 +41,24 @@ export class BookedcarService {
   }
 
 
-  returnedCar(id:number){
+  returnedCar(id:number,returnDate:string,totalBill:string,totalMin:number,bookingTime:string,userEmail:string,pricePerHour:number,carName:string){
+    console.log(`return date=${returnDate} totalBill=${totalBill}` )
     const httpOptions={
       headers:new HttpHeaders({
         token:sessionStorage['token']
       })
     }
+    const body={
+      totalRent:totalBill,
+      returnOn:returnDate,
+      rideDuration:totalMin,
+      bookingTime:bookingTime,
+      userEmail:userEmail,
+      pricePerHour:pricePerHour,
+      carName:carName
+    }
     console.log(`*****${httpOptions['headers']}*****`)
-    return this.http.put(this.url+'/returned/'+id,httpOptions)
+    return this.http.put(this.url+'/returned/'+id,body,httpOptions)
   }
 
 
@@ -58,7 +69,8 @@ export class BookedcarService {
       })
     }
     const body={
-      returnStatus:returnStatus
+      returnStatus:returnStatus,
+
     }
     console.log(`*****${returnStatus} & type=${typeof(returnStatus)} &  body=${body.returnStatus}*****`)
     return this.http.post(this.url+'/filter',body,httpOptions)

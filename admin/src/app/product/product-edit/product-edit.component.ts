@@ -36,6 +36,7 @@ export class ProductEditComponent implements OnInit {
       this.toastr.warning('Please,Enter description')
     }
     else{
+      
       this.service.updateProduct(this.id,this.carName,this.noOfSeats,this.plateNo,this.pricePerHour,this.model,this.description,this.transmission,this.fuel,this.image,this.isUploaded,this.isAvailable)
                   .subscribe(response=>{
                     if(response['status']='success')

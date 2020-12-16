@@ -20,8 +20,9 @@ export class BookingHistoryComponent implements OnInit {
   ngOnInit(): void {
     this.loadCars(this.isFilter)
   }
-
+  loadTime:any
   loadCars(isFilter){
+    this.loadTime=new Date()
     console.log(`status:${this.status} ${typeof(this.status)}`)
     this.service.filterCars(this.status)
                 .subscribe(response=>{
@@ -78,6 +79,7 @@ export class BookingHistoryComponent implements OnInit {
   }
 
   showLicence(car){
+    
     const modalRef=this.modal.open(DrivinglicenceComponent,{size:'lg'})
     const component=modalRef.componentInstance as DrivinglicenceComponent
     component.image=car.drivingLicence

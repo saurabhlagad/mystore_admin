@@ -1,0 +1,21 @@
+
+
+<div class="modal-header">
+    <h3 class="title">Total Bill</h3>
+</div>
+
+<div class="modal-body">
+    
+    <h5>Total Min= {{totalMin}}</h5> <br>
+    <h5>From Date= {{fromDate}}</h5> <br>
+      <h5>Return Date= {{returnDate}}</h5> <br>
+      <h5>Price/Hour= {{pricePerHour}}</h5> <br>
+      <h5>Total Bill= Total Min * Price/Min <br > <h5 style="margin-left:80px;"> = {{totalMin}} * {{pricePerMin}} </h5> </h5>
+      <h5>Total Bill= {{totalBill}}</h5>
+      
+</div>
+
+<div class="modal-footer">
+    <button (click)="onReturned()" class="btn btn-primary" style="float: right;">Returned</button>
+    <button (click)="onCancle()" class="btn btn-danger" style="float: right;">Not Returned</button>
+</div>

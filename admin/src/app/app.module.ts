@@ -23,6 +23,7 @@ import { BookedcarListComponent } from './bookedcar/bookedcar-list/bookedcar-lis
 import { BookingHistoryComponent } from './bookedcar/booking-history/booking-history.component';
 import { MontlyReportComponent } from './montly-report/montly-report.component';
 import { CountComponent } from './count/count.component';
+import { GenerateBillComponent } from './bookedcar/generate-bill/generate-bill.component';
 //import { DrivinglicenceComponent } from './drivinglicence/drivinglicence/drivinglicence.component';
 //import { BookedcarEditComponent } from './bookedcar/bookedcar-edit/bookedcar-edit.component';
 
@@ -43,7 +44,8 @@ import { CountComponent } from './count/count.component';
     BookedcarListComponent,
     BookingHistoryComponent,
     MontlyReportComponent,
-    CountComponent
+    CountComponent,
+    GenerateBillComponent
     //DrivinglicenceComponent,
     //BookedcarEditComponent
   ],

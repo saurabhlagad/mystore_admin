@@ -21,7 +21,10 @@ export class GenerateBillComponent implements OnInit {
   pricePerMin:any
   userEmail=''
   carName=''
+  totalHour:any
   ngOnInit(): void {
+    this.totalHour=this.totalMin/60;
+    this.totalHour=this.totalHour.toFixed(2);
     this.pricePerMin=this.pricePerHour/60; 
     this.pricePerMin=this.pricePerMin.toFixed(2)
    this.totalBill=this.pricePerMin*this.totalMin;

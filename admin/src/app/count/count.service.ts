@@ -24,6 +24,26 @@ export class CountService {
         token:sessionStorage['token']
       })
     }
+
     return this.http.get(this.url+'/bookcar-count',httpOptions)
+  }
+
+  getFeedbackCount(){
+    const httpOptions={
+      headers:new HttpHeaders({
+        token:sessionStorage['token']
+      })
+    }
+
+    return this.http.get(this.url+'/Feedback-count',httpOptions)
+  }
+  getFAQCount(){
+    const httpOptions={
+      headers:new HttpHeaders({
+        token:sessionStorage['token']
+      })
+    }
+
+    return this.http.get(this.url+'/FAQ-count',httpOptions)
   }
 }

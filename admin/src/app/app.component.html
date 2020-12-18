@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    >
   <title>Document</title>
 </head>
 <body>
@@ -28,7 +31,7 @@
             <a class="nav-link" routerLink="user-list" routerLinkActive="active"><h4>Users</h4></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="bookedcar-list" routerLinkActive="active"><h4>waiting List</h4></a>
+            <a class="nav-link" routerLink="bookedcar-list" routerLinkActive="active"><h4>Waiting List</h4></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="booking-history" routerLinkActive="active"><h4>Booking History</h4></a>            
@@ -36,7 +39,7 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="monthly-report" routerLinkActive="active"><h4>Monthly Report</h4></a>            
           </li>
-          <button (click)="onLogout()" class="btn btn-primary" style="margin-left: 50px;"> logout </button>
+          <button (click)="onLogout()" class="btn btn-primary" style="margin-left: 50px;width: 70px;"> <i class="fa fa-sign-in"  aria-hidden="true"></i> </button>
         </ul>
       </div>
     </div>

@@ -14,10 +14,10 @@
             <label for="">status</label>
             <select (change)="loadCars(1)" [(ngModel)]="status" class="form-control">
                 <option value="-1">All</option>
-                <option value="0">on the way</option>
+                <option value="0">On the way</option>
                 <option value="1">Returned</option>
-                <option value="2">waiting list</option>
-                <option value="3">denied requests</option>
+                <option value="2">Waiting list</option>
+                <option value="3">Denied requests</option>
             </select>
         </div>          
     </div>
@@ -60,7 +60,7 @@
                         <td>
                             <strong>Car Name:</strong>{{car.carName}} <br>
                             <strong>Plate No:</strong>{{car.plateNo}} <br>
-                            <strong>price/hour:</strong>₹{{car.pricePerHour}}
+                            <strong>Price/hour:</strong>₹{{car.pricePerHour}}
                         </td>
                         <td>
                             <strong>User Firstname:</strong> {{car.userFirstName}} <br>
